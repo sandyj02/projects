@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<style>
+			.amp{
+				width: 70%;
+				margin:auto;
+			}
+			.caselle{
+				width: 90%;
+				border-radius: 5px 5px 5px 5px;
+				height:35px;
+				border-width:1px;
+				border-color:lightgray;
+			}
+			p{
+				font-weight:bold;
+				margin-bottom:5px;
+			}	
+			.r{
+				padding-right:0px;
+			}
+			.tit{
+				background-color:white;
+				border-bottom-color:green;
+			}
+			
+			.accordion {
+			  color: #444;
+			  cursor: pointer;
+			  padding: 18px;
+			  width: 100%;
+			  border: none;
+			  text-align: left;
+			  outline: none;
+			  font-size: 15px;
+			  transition: 0.4s;
+			}
+			.accordion:after {
+				content: '\02C4';
+				color: #777;
+				font-weight: bold;
+				float: right;
+				margin-left: 5px;
+			}
+
+			.active:after {
+				content: "\02C5";
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$("#sel").change(function(){
+					if($("#si").is(":selected")){
+						$("#div1").fadeIn("fast");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="accordion">
+		<!--primo-->
+			<div class="card">
+			<!--titolo-->
+			<div class="card-header tit" id="headingOne">
+			  <h5 class="mb-0">
+				<button class="btn btn-link accordion" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				  Dati Anagrafici
+				</button>
+			  </h5>
+			 </div>
+			<!--corpo-->
+			<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+			  <div class="card-body">
+					<form>
+						<!--prima riga-->
+						<div class="row amp">
+							<div class=col-lg-4>
+								<p> Nome*: </p>
+								<input type=text size=15 placeholder="Nome*" class=caselle>
+							</div>
+							<div class=col-lg-4>
+								<p> Cognome*: </p>
+								<input type=text size=15 placeholder="Cognome*" class=caselle>
+							</div>
+							<div class=col-lg-4>
+								<p> Telefono*: </p>
+								<input type=text size=15 placeholder="Telefono*" class=caselle>
+							</div>
+						</div>
+						<!--seconda riga-->
+						<br>
+						<div class="row amp">
+							<div class=col-lg-4>
+								<p> Email*: </p>
+								<input type=text size=15 placeholder="Email*" class=caselle>
+							</div>
+							<div class=col-lg-4>
+								<p> Conferma email*: </p>
+								<input type=text size=15 placeholder="Cognome*" class=caselle>
+							</div>
+							<div class=col-lg-4>
+								<div class=row>
+									<div class=col-lg-6>
+										<p> Sesso*: </p>
+									</div>
+									<div class=col-lg-6>
+										<input type=radio name=sesso> M &nbsp;&nbsp; <input type=radio name=sesso> F
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- terza riga-->
+						<br>
+						<div class="row amp">
+							<div class=col-lg-4>
+								<p> Data di nascita*: </p>
+								<input type=text size=15 placeholder="Data di nascita*" class=caselle>
+							</div>
+							<div class=col-lg-4>
+								<p> Stato di origine*: </p>
+								<select class=caselle>
+									<option> Italia </option>
+									<option> Francia </option>
+									<option> Germania </option>
+									<option> Cina </option>
+									<oprtion> Altro </option>
+								</select>
+							</div>
+							<div class=col-lg-4>
+								<p> Comune di nascita*: </p>
+								<input type=text size=15 placeholder="Comune di nascita*" class=caselle>
+							</div>
+						</div>
+						<br>
+						<!--quarta riga-->
+						<div class="row amp">
+							<div class=col-lg-4>
+								<p> Codice fiscale*: </p>
+								<input type=text size=15 placeholder="codice fiscale*" class=caselle>
+							</div>
+							<div class=col-lg-8>
+								<p> Indirizzo*: </p>
+								<input type=text size=15 placeholder="Inserisci l'indirizzo completo (civico,indirizzo, città, ecc.*" class=caselle style="width:95%;">
+							</div>
+						</div>
+						<br>
+						<!--quinta riga-->
+						<div class="row amp">
+							<div class=col-lg-4>
+								<p> Titolo: </p>
+								<select class=caselle>
+									<option> Seleziona </option>
+									<option> a </option>
+									<option> b </option>
+									<option> c </option>
+									<option> altro </option>
+								</select>
+							</div>
+							<div class=col-lg-4>
+								<p> Parenti e/o conoscenti in azienda: </p>
+								<select class=caselle>
+									<option> Seleziona </option>
+									<option> sì </option>
+									<option> no </option>
+								</select>
+							</div>
+							<div class=col-lg-4>
+								<p> Nominativo: </p>
+								<input type=text size=15 placeholder=" Se sì, indicare il nominativo" class=caselle>
+							</div>
+						</div>
+						<br>
+						<!--sesta riga-->
+						<div class="row amp">
+							<div class=col-lg-4>
+								<p> Categoria protetta: </p>
+								<select class=caselle>
+									<option> Seleziona </option>
+									<option> a </option>
+									<option> b </option>
+									<option> c </option>
+									<option> altro </option>
+								</select>
+							</div>
+							<div class=col-lg-4>
+								<p> Come hai saputo dell'annuncio: </p>
+								<select class=caselle>
+									<option> Seleziona </option>
+									<option> Social </option>
+									<option> Pubblicità </option>
+									<option> Amici </option>
+									<option> Altro </option>
+								</select>
+							</div>
+							<div class=col-lg-4>
+								<p> Patente: </p>
+									<select class=caselle>
+									<option> Seleziona </option>
+									<option> A </option>
+									<option> A1 </option>
+									<option> A2 </option>
+									<option> B </option>
+									<option> Altro </option>
+								</select>
+							</div>
+						</div>
+					</form>
+				<br><br>
+				</div>
+			</div>
+		  </div>
+		<!-- secondo-->
+			<div class="card">
+			<!--titolo-->
+			<div class="card-header tit" id="headingTwo">
+			  <h5 class="mb-0">
+				<button class="btn btn-link collapsed accordion" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				  Esperienze professionali
+				</button>
+			  </h5>
+			</div>
+			<!--corpo-->
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+			  <div class="card-body">
+				<!--prima riga-->
+					<div class="row amp" style="width: 72%;">
+						<div class=col-lg-3>
+							<p> Ultima esperienza: </p>
+							<select class=caselle style="width: 100%; padding-left:0px;">
+								<option> Seleziona </option>
+								<option> Operaio </option>
+								<option> Segretatrio </option>
+								<option> Insegnante </option>
+								<option> Altro </option>
+							</select>
+						</div>
+						<div class=col-lg-3>
+							<p> Da: </p>
+							<input type=text size=15 placeholder="dd/mm/yyyy" class=caselle style="width: 94%;">
+						</div>
+						<div class=col-lg-3>
+							<p> A: </p>
+							<input type=text size=15 placeholder="dd/mm/yyyy" class=caselle style="width: 94%;">
+						</div>
+						<div class=col-lg-3>
+							<p> Settore: </p>
+							<select class="caselle r" style="width: 90%;">
+								<option> Seleziona </option>
+								<option> Primario </option>
+								<option> Secondario </option>
+								<option> Terziario </option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<!--seconda riga-->
+				<div class="row amp">
+					<div class=col-lg-6>
+						<p> Azienda: </p>
+						<input type=text size=15 placeholder="inserisci azienda" class=caselle style="width:94%;">
+					</div>
+					<div class=col-lg-6>
+						<p> A: </p>
+						<input type=text size=15 placeholder="Inserisci città" class=caselle style="width:94%;">
+					</div>
+				</div>
+				<br>
+				<!--terza riga-->
+				<div class="row amp">
+					<div class=col-lg-4>
+						<p> Area funzionale: </p>
+						<select class=caselle>
+							<option> Seleziona </option>
+							<option> a </option>
+							<option> b </option>
+							<option> c </option>
+							<option> Altro </option>
+						</select>
+					</div>
+					<div class=col-lg-4>
+						<p> Posizione: </p>
+						<select class=caselle>
+							<option> Seleziona </option>
+							<option> a </option>
+							<option> b </option>
+							<option> c </option>
+							<option> Altro </option>
+						</select>
+					</div>
+					<div class=col-lg-4>
+						<p> Area funzionale: </p>
+						<select class=caselle>
+							<option> Seleziona </option>
+							<option> tempo determinato </option>
+							<option> tempo indeterminato </option>
+						</select>
+					</div>
+				</div>
+				<br>
+				<!--quarta riga-->
+				<div class="row amp">
+					<div class=col-lg-4>
+						<p> Descrizione esperienza lavorativa: </p>
+						<textarea rows="4" cols="15" style="width: 90%;">
+						</textarea>
+					</div>
+					<div class=col-lg-4>
+						<p> Descrizione mansione: </p>
+						<textarea rows="4" cols="15" style="width: 90%;">
+						</textarea>
+					</div>
+					<div class=col-lg-4>
+						<p> Motivo cessazione: </p>
+						<textarea rows="4" cols="15" style="width: 90%;">
+							</textarea>
+					</div>
+				</div>
+				<br>
+				<!--quinta riga-->
+				<div class="row amp">
+					<div class=col-lg-4>
+						<p> Aggiungi altre esperienze: </p>
+						<select class=caselle>
+							<option> Seleziona </option>
+							<option> a </option>
+							<option> b </option>
+							<option> c </option>
+							<option> Altro </option>
+						</select>
+					</div>
+					<div class=col-lg-4>
+						<p> Numero di persone gestite: </p>
+						<select class=caselle>
+							<option> Seleziona </option>
+							<option> 1-5 </option>
+							<option> 5-10 </option>
+							<option> 15-20 </option>
+							<option> 20+ </option>
+						</select>
+					</div>
+					<div class=col-lg-4>
+						<p> Retribuzione annuale lorda (€): </p>
+						<select class=caselle>
+							<option> Seleziona </option>
+							<option> meno di 10000 </option>
+							<option> 10000-15000 </option>
+							<option> 15000-20000 </option>
+							<option> 20000+ </option>
+						</select>
+					</div>
+				</div>
+				<br>
+				<!--sesta riga-->
+				<div class=amp style="padding-left:15px;">
+					<p> Ultime esperienze: </p>
+					<select style="width: 40%;" id=sel>
+						<option> No </option>
+						<option id=si> Sì </option>
+					</select>
+				</div>
+				<br>
+				<div style="display:none;" class=amp Id=div1>
+				<form>
+					<p> Esperienza lavorativa:</p>
+					<select  style="width: 40%;">
+						<option> Seleziona </option>
+						<option> Operaio </option>
+						<option> Segretatrio </option>
+						<option> Insegnante </option>
+						<option> Altro </option>
+					</select  style="width: 40%;">
+					<br>
+					<p> Ultime esperienze: </p>
+					<select>
+						<option> No </option>
+						<option> Sì </option>
+					</select>
+				</form>
+			</div>
+				<br>
+			</div>
+			</div>
+		<!--terzo-->
+			<div class="card">
+			<!--titolo-->
+			<div class="card-header tit" id="headingThree">
+			  <h5 class="mb-0">
+				<button class="btn btn-link collapsed accordion" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+				  Studi
+				</button>
+			  </h5>
+			</div>
+			<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+			  <div class="card-body">
+				<!--prima riga-->
+				<div class="row amp">
+					<div class=col-lg-3>
+						<p> Livello d'istruzione: </p>
+						<select class=caselle>
+							<option> Seleziona </option>
+							<option> Medie </option>
+							<option> Superiori </option>
+							<option> Università </option>
+						</select>
+					</div>
+					<div class=col-lg-3>
+						<p> Diloma: </p>
+						<select class=caselle>
+							<option> Seleziona </option>
+							<option> ingegneria </option>
+							<option> giurisprudenza </option>
+							<option> medicina </option>
+							<option> altro </option>
+						</select>
+					</div>
+					<div class=col-lg-3>
+						<p> Data inizio: </p>
+						<input type=text size=15 class=caselle placeholder="Data inizio">
+					</div>
+					<div class=col-lg-3>
+						<p> Data fine (prevista): </p>
+						<input type=text size=15 class=caselle placeholder="Data fine">
+					</div>
+				<br>
+				</div>
+				<!--seconda riga-->
+				<div class="row amp">
+					<div class=col-lg-4>
+						<p> Istituto di formazione: </p>
+						<select class=caselle style="width:94%;">
+							<option> Tecnico </option>
+							<option> Liceo </option>
+							<option> Professionale </option>
+						</select>
+					</div>
+					<div class=col-lg-4>
+						<p> Città: </p>
+						<input type=text size=15 class=caselle placeholder="Città" style="width:94%;">
+					</div>
+					<div class=col-lg-4>
+						<p> Voto: </p>
+						<input type=text size=15 class=caselle placeholder="Voto" style="width:94%;">
+					</div>
+				</div>
+				<br>
+				<!--terza riga-->
+				<div class="row amp">
+					<div class=col-lg-6>
+						<p> Università(Italia=: </p>
+						<select class=caselle>
+							<option> a </option>
+							<option> b </option>
+							<option> c </option>
+							<option> altro </option>
+						</select>
+					</div>
+					<div class=col-lg-3>
+						<p> Data inizio: </p>
+						<input type=text size=15 class=caselle placeholder="Data inizio">
+					</div>
+					<div class=col-lg-3>
+						<p> Data fine(prevista): </p>
+						<input type=text size=15 class=caselle placeholder="Data fine">
+					</div>
+				</div>
+				<!--quarta riga-->
+				<div class="row amp">
+					<div class=col-lg-4>
+						<p> Altra università: </p>
+						<input type=text size=15 class=caselle placeholder="Altra università" style="width:93%;">
+					</div>
+					<div class=col-lg-8>
+						<p> Città: </p>
+						<input type=text size=15 class=caselle placeholder="Città" style="width:97%;">
+					</div>
+				</div>
+				<br>
+				<!--quinta riga-->
+				<div class="row amp">
+					<div class=col-lg-10>
+						<p> Titolo tesi laurea: </p>
+						<input type=text size=15 class=caselle placeholder="Titolo tesi laurea">
+					</div>
+					<div class=col-lg-2>
+						<p> Voto: </p>
+						<input type=text size=15 class=caselle placeholder="Voto">
+					</div>
+				</div>
+				<br>
+				<!--sesta riga-->
+				<div class="row amp">
+					<div class=col-lg-6>
+						<p> Master/dottorato: </p>
+						<input type=text size=15 class=caselle placeholder="Master/dottorato">
+					</div>
+					<div class=col-lg-3>
+						<p> Data inizio: </p>
+						<input type=text size=15 class=caselle placeholder="Data inizio">
+					</div>
+					<div class=col-lg-3>
+						<p> Data fine(prevista): </p>
+						<input type=text size=15 class=caselle placeholder="Data fine">
+					</div>
+				</div>
+				<br>
+				<!--settima riga-->
+				<div class="row amp">
+					<div class=col-lg-10>
+						<p> Descrizione: </p>
+						<input type=text size=15 class=caselle placeholder="Descrizione:">
+					</div>
+					<div class=col-lg-2>
+						<p> Città: </p>
+						<input type=text size=15 class=caselle placeholder="Città">
+					</div>
+				</div>
+				<br>
+			 </div>
+			</div>
+			</div>
+		<!--quarto-->
+			<div class="card">
+				<!--titolo-->
+				<div class="card-header tit" id="headingFour">
+				  <h5 class="mb-0">
+					<button class="btn btn-link collapsed accordion" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+					  Lingue
+					</button>
+				  </h5>
+				</div>
+				<div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+					 <div class="card-body">
+						<!--prima riga-->
+						<div class="row amp">
+							<div class=col-lg-7>
+								<p> Lingua madre: </p>
+								<select class=caselle style="width:95%;">
+									<option> Italiano </option>
+									<option> Inglese </option>
+									<option> Francese </option>
+									<option> Spagnolo </option>
+									<option> Altro </option>
+								</select>
+							</div>
+							<div class=col-lg-5>
+								<p> Quale altre lingue conosci: </p>
+								<select class=caselle style="width:94%;">
+									<option> Italiano </option>
+									<option> Inglese </option>
+									<option> Francese </option>
+									<option> Spagnolo </option>
+									<option> Altro </option>
+								</select>
+							</div>
+						</div>
+						<br>
+						<!--seconda riga-->
+						<div class="row amp">
+							<div class=col-lg-3>
+								<p> Esperienza all'estero: </p>
+								<select class=caselle>
+									<option> Seleziona </option>
+									<option> Sì </option>
+									<option> No </option>
+								</select>
+							</div>
+							<div class=col-lg-3>
+								<p> Durata: </p>
+								<input type=text size=15 class=caselle placeholder="Durata">
+							</div>
+							<div class=col-lg-3>
+								<p> Luogo: </p>
+								<input type=text size=15 class=caselle placeholder="Luogo">
+							</div>
+							<div class=col-lg-3>
+								<p> Motivo </p>
+								<input type=text size=15 class=caselle placeholder="motivo">
+							</div>
+						</div>
+						<br>
+				</div>
+			</div>
+		</div>
+		
+		<!--quinto-->
+			<div class="card">
+				<!--titolo-->
+				<div class="card-header tit" id="headingFive">
+				  <h5 class="mb-0">
+					<button class="btn btn-link collapsed accordion" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+					  Preferenze
+					</button>
+				  </h5>
+				</div>
+				<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+					<div class="card-body">
+						<!--prima riga-->
+						<div class="row amp">
+							<div class=col-lg-3>
+								<p> Disponibilità a trasferte in Italia: </p>
+								<select class=caselle>
+									<option> Seleziona </option>
+									<option> Sì </option>
+									<option> No </option>
+								</select>
+							</div>
+							<div class=col-lg-3>
+								<p> Disponibilità a trasferimenti in Italia: </p>
+								<select class=caselle>
+									<option> Seleziona </option>
+									<option> Sì </option>
+									<option> No </option>
+								</select>
+							</div>
+							<div class=col-lg-3>
+								<p> Disponibilità a trasferte estere: </p>
+								<select class=caselle>
+									<option> Seleziona </option>
+									<option> Sì </option>
+									<option> No </option>
+								</select>
+							</div>
+							<div class=col-lg-3>
+								<p> Disponibilità a trasferimenti esteri: </p>
+								<select class=caselle>
+									<option> Seleziona </option>
+									<option> Sì </option>
+									<option> No </option>
+								</select>
+							</div>
+							<br>
+						</div>
+					<br>
+					<!--seconda riga-->
+					<div class="row amp">
+						<div class=col-lg-3>
+							<p> Disponibilità a fare stage: </p>
+							<br>
+							<select class=caselle>
+								<option> Seleziona </option>
+								<option> Sì </option>
+								<option> No </option>
+							</select>
+						</div>
+						<div class=col-lg-3>
+							<p> Inquadramento desiderato: </p>
+							<select class=caselle>
+								<option> Seleziona </option>
+								<option> a </option>
+								<option> b </option>
+								<option> c </option>
+								<option> altro </option>
+							</select>
+						</div>
+						<div class=col-lg-3>
+							<p> Retribuzione lorda desiderata(anno) </p>
+							<input type=text class=caselle placeholder="Retribuzione lorda desiderata">
+						</div>
+						<div class=col-lg-3>
+							<p> Altre esigenze eventuali: </p>
+							<br>
+							<input type=text class=caselle placeholder="Altre esigenze eventuali">
+						</div>
+						<br>
+					</div>
+					<br>
+					<!--terza riga-->
+					<div class="row amp">
+						<div class=col-lg-4>
+							<p> Interessi professionali: </p>
+							<textarea rows="4" cols="20" style="width:92%;">
+							</textarea>
+						</div>
+							<div class=col-lg-4>
+							<p> Aspirazioni lavorative: </p>
+							<textarea rows="4" cols="20" style="width:92%;">
+							</textarea>
+						</div>
+						<div class=col-lg-4>
+							<p> Punti di forza: </p>
+						<textarea rows="4" cols="20" style="width:92%;">
+						</textarea>
+						</div>
+					</div>
+					<br>
+					</div>
+				</div>
+			</div>
+			 
+		<!--sesto-->
+			<div class="card">
+				<!--titolo-->
+				<div class="card-header tit" id="headingSix">
+				  <h5 class="mb-0">
+					<button class="btn btn-link collapsed accordion" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+					  Allega CV
+					</button>
+				  </h5>
+				</div>
+				<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+					<!--Corpo-->
+					 <div class="card-body">
+						<div>
+							<p> Seleziona allegato: </p>
+							<input type="file" name="file1">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		 <script>
+			  var acc = document.getElementsByClassName("accordion");
+				var i;
+				for (i = 0; i < acc.length; i++) {
+				  acc[i].addEventListener("click", function() {
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight) {
+					  panel.style.maxHeight = null;
+					} else {
+					  panel.style.maxHeight = panel.scrollHeight + "px";
+					} 
+				  });
+				}
+			</script>
+		<!--fine pagina-->
+		<br><br>
+		 <p style="font-weight:lighter; padding-left: 40px;"> I campi con l'asterisco sono obbligatori </p>
+		<p style="font-weight:lighter; padding-left: 40px;"> 
+		<input type=checkbox> Autorizzo il trattomento dei dati personali contenuti nel mio curriculum vitae in base all'art.13 del D.Lgs. 196/2003 </p>
+		<br>
+		<div class=row>
+			<div class=col-sm-6 style="padding-left: 50px;">
+				<a href="#" class="btn border-danger mb-3" style="color:#dc3545;">CONTROLLA DATI INSERITI</a>
+			</div>
+			<div class=col-sm-6 style="display: flex; justify-content: flex-end; height:40px; padding-right: 50px;">
+				<a href="#" class="btn btn-danger">CONFERMA E INVIA I DATI</a>
+			</div>
+		</div>
+	</body>
+</html> 
